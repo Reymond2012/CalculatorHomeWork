@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnAdd;
     Button btnLogs;
+    Button btndivide;
+    Button btnsubtract;
+    Button btnmultiply;
 
     TextView tvResult;
 
@@ -34,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         btnAdd = findViewById(R.id.btnAdd);
         btnLogs = findViewById(R.id.btnLogs);
+        btndivide = findViewById(R.id.btndivide);
+        btnmultiply = findViewById(R.id.btnmultiply);
+        btnsubtract = findViewById(R.id.btnsubtract);
 
         tvResult = findViewById(R.id.tvResult);
 
@@ -44,6 +50,35 @@ public class MainActivity extends AppCompatActivity {
                         etNumberTwo.getText().toString());
                 tvResult.setText(result);
                 log.add("Result of Addition: " + result);
+            }
+        });
+
+        btnsubtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String result = subtract(etNumberOne.getText().toString(),
+                        etNumberTwo.getText().toString());
+                tvResult.setText(result);
+                log.add("Result of Subtraction: " + result);
+            }
+        });
+        btnmultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String result = multiply(etNumberOne.getText().toString(),
+                        etNumberTwo.getText().toString());
+                tvResult.setText(result);
+                log.add("Result of Multiplication: " + result);
+            }
+        });
+
+        btndivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String result = divide(etNumberOne.getText().toString(),
+                        etNumberTwo.getText().toString());
+                tvResult.setText(result);
+                log.add("Result of Division: " + result);
             }
         });
 
@@ -70,4 +105,41 @@ public class MainActivity extends AppCompatActivity {
         int result = a + b;
         return Integer.toString(result);
     }
+
+    private String subtract(String numberOne, String numberTwo) {
+        if (numberOne.equals("") || numberTwo.isEmpty()) {
+            Toast.makeText(this, "Please enter a valid number",
+                    Toast.LENGTH_SHORT).show();
+            return null;
+        }
+        int a = Integer.parseInt(numberOne);
+        int b = Integer.parseInt(numberTwo);
+        int result = a - b;
+        return Integer.toString(result);
+    }
+
+    private String multiply(String numberOne, String numberTwo) {
+        if (numberOne.equals("") || numberTwo.isEmpty()) {
+            Toast.makeText(this, "Please enter a valid number",
+                    Toast.LENGTH_SHORT).show();
+            return null;
+        }
+        int a = Integer.parseInt(numberOne);
+        int b = Integer.parseInt(numberTwo);
+        int result = a * b;
+        return Integer.toString(result);
+    }
+
+    private String divide(String numberOne, String numberTwo) {
+        if (numberOne.equals("") || numberTwo.isEmpty()) {
+            Toast.makeText(this, "Please enter a valid number",
+                    Toast.LENGTH_SHORT).show();
+            return null;
+        }
+        int a = Integer.parseInt(numberOne);
+        int b = Integer.parseInt(numberTwo);
+        int result = a / b;
+        return Integer.toString(result);
+    }
 }
+
