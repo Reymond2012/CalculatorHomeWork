@@ -3,6 +3,7 @@ package com.example.sidd.calculator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -25,6 +26,12 @@ public class LogsActivity extends AppCompatActivity {
         }
 
         tvLogs.setText(stringBuilder.toString());
+
+        Bus bus = (Bus) getIntent().getSerializableExtra("Bus");
+        tvLogs.setText(bus.getEyeColor());
+
+        Room room = (Room) getIntent().getParcelableExtra("Room");
+        tvLogs.setText(String.valueOf(room.getChairCount()));
     }
 
 }
