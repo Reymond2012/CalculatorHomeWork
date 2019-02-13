@@ -4,4 +4,5 @@
     <string name="label_add">Add</string>
     <string name="label_subtract">subtract</string>
     <string name="show_logs">Show Logs</string>
+    <string name="subtract">subtract</string>
 </resources>
